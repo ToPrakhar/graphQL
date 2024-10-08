@@ -1,0 +1,24 @@
+enum FilterOperation {
+    EQUAL
+    BETWEEN
+}
+
+input UserFilterInput {
+    key: String!       # Field to filter on, like "name" or "createdDate"
+    value: String      # For EQUAL filters
+    startDate: String  # For BETWEEN filters (date range)
+    endDate: String    # For BETWEEN filters (date range)
+    operation: FilterOperation = EQUAL  # Default operation is EQUAL
+}
+
+type Query {
+    getUsersByFilters(filters: [UserFilterInput]): [User]
+}
+
+type User {
+    id: String
+    name: String
+    email: String
+    age: Int
+    createdDate: String
+}
