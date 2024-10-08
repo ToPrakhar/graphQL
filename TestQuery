@@ -1,0 +1,27 @@
+query {
+  getUsersByFilters(filters: [
+    { key: "name", value: "John Doe", operation: EQUAL },
+    { key: "createdDate", startDate: "2023-01-01", endDate: "2023-12-31", operation: BETWEEN }
+  ]) {
+    id
+    name
+    email
+    createdDate
+  }
+}
+
+###################
+query {
+  getUsersByFilters(filters: [
+    { key: "createdDate", startDate: "2023-01-01", endDate: "2023-12-31", operation: BETWEEN }
+  ]) {
+    id
+    name
+    email
+    createdDate
+  }
+}
+
+###################
+
+
